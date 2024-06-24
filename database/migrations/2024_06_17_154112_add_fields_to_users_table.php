@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('address1', 100)->nullable()->after('prefecture');
             $table->string('address2', 100)->nullable()->after('address1');
             $table->string('phone', 20)->nullable()->after('address2');
-            $table->string('role', 20)->after('email');
-            $table->string('user_type', 10)->after('role');
+            $table->string('role', 20)->after('email')->default('user');
+            $table->string('user_type', 10)->after('role')->default('personal');
             $table->boolean('email_notification')->default(false)->after('user_type');
             $table->text('remarks')->nullable()->after('email_notification');
         });
