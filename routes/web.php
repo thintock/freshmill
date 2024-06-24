@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DeliveryAddressController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+})->name('top');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+    Route::post('/delivery-address', [DeliveryAddressController::class, 'store'])->name('delivery-address.store');
+    Route::get('/delivery-addresses', [DeliveryAddressController::class, 'getUserAddresses'])->name('delivery-addresses');
+    
 });
+
+require __DIR__.'/auth.php';

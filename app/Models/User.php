@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Notifications\ResetPasswordNotification;
 
 class User extends Authenticatable
 {
@@ -19,8 +20,21 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'first_name',
+        'first_name_kana',
+        'last_name_kana', 
+        'company_name',
+        'postal_code',
+        'prefecture',
+        'address1', 
+        'address2',
+        'phone',
         'email',
         'password',
+        'role', 
+        'email_notification',
+        'remarks',
+        'user_type',
     ];
 
     /**
@@ -41,4 +55,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function deliveryAddresses()
+    {
+        return $this->hasMany(DeliveryAddress::class);
+    }
+    
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
 }
