@@ -15,6 +15,7 @@
                     <a href="{{ route('dashboard') }}" class="font-semibold text-base leading-5 {{ request()->routeIs('dashboard') ? 'border-b-2 border-indigo-500' : 'hover:text-gray-400 hover:border-gray-300' }} focus:outline-none transition duration-150 ease-in-out">
                         マイページ
                     </a>
+                    <a href="{{ route('products.list') }}" class="nav-link font-semibold text-base leading-5 ">商品一覧</a>
                 </div>
             </div>
 

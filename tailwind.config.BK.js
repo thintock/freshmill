@@ -22,23 +22,4 @@ export default {
         },
     },
     plugins: [forms, typography, daisyui],
-    daisyui: {
-        themes: [
-            {
-                light: {
-                    "primary": "#38bdf8",
-                    "secondary": "#4ade80",
-                    "accent": "#fcd34d",
-                    "neutral": "#343a47",
-                    "base-100": "#ffffff",
-                    "base-200": "#f2f5e9",
-                    "base-300": "#1e2433",
-                    "info": "#fb923c",
-                    "success": "#a78bfa",
-                    "warning": "#fb7185",
-                    "error": "#dc2626",
-                },
-            },
-        ],
-    },
 };

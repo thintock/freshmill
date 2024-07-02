@@ -27,28 +27,30 @@
 
             <!-- 配送先の名前 -->
             <div>
+                <x-input-label for="da_last_name" :value="__('姓')" />
+                <x-text-input id="da_last_name" name="da_last_name" type="text" class="mt-1 block w-full" x-model="form.da_last_name" required autocomplete="da_last_name" />
+                <x-input-error class="mt-2" :messages="$errors->get('da_last_name')" />
+            </div>
+            
+            <div>
                 <x-input-label for="da_first_name" :value="__('名')" />
                 <x-text-input id="da_first_name" name="da_first_name" type="text" class="mt-1 block w-full" x-model="form.da_first_name" required autocomplete="da_first_name" />
                 <x-input-error class="mt-2" :messages="$errors->get('da_first_name')" />
             </div>
 
-            <div>
-                <x-input-label for="da_last_name" :value="__('姓')" />
-                <x-text-input id="da_last_name" name="da_last_name" type="text" class="mt-1 block w-full" x-model="form.da_last_name" required autocomplete="da_last_name" />
-                <x-input-error class="mt-2" :messages="$errors->get('da_last_name')" />
-            </div>
 
             <!-- 配送先のセイ -->
-            <div>
-                <x-input-label for="da_first_kana" :value="__('メイ')" />
-                <x-text-input id="da_first_kana" name="da_first_kana" type="text" class="mt-1 block w-full" x-model="form.da_first_kana" required autocomplete="da_first_kana" />
-                <x-input-error class="mt-2" :messages="$errors->get('da_first_kana')" />
-            </div>
 
             <div>
                 <x-input-label for="da_last_kana" :value="__('セイ')" />
                 <x-text-input id="da_last_kana" name="da_last_kana" type="text" class="mt-1 block w-full" x-model="form.da_last_kana" required autocomplete="da_last_kana" />
                 <x-input-error class="mt-2" :messages="$errors->get('da_last_kana')" />
+            </div>
+            
+            <div>
+                <x-input-label for="da_first_kana" :value="__('メイ')" />
+                <x-text-input id="da_first_kana" name="da_first_kana" type="text" class="mt-1 block w-full" x-model="form.da_first_kana" required autocomplete="da_first_kana" />
+                <x-input-error class="mt-2" :messages="$errors->get('da_first_kana')" />
             </div>
 
             <!-- 配送先の会社名 -->

@@ -37,10 +37,27 @@ class ProfileController extends Controller
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
+    
+    public function editRole(Request $request): View
+    {
+        return view('profile.d2fb69863001227d6eb57c1747c28682',[
+            'user' => $request->user(),
+        ]);
+    }
+    
+    public function updateRole(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'role' => 'required|string|in:user,admin',
+        ]);
 
-    /**
-     * Delete the user's account.
-     */
+        $user = $request->user();
+        $user->role = $request->input('role');
+        $user->save();
+
+        return Redirect::route('profile.d2fb69863001227d6eb57c1747c28682')->with('success', 'ユーザー区分を変更しました。');
+    }
+    
     public function destroy(Request $request): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [

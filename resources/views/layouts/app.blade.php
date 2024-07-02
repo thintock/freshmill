@@ -26,7 +26,11 @@
                 </div>
             </header>
         @endif
-
+        
+        @include('commons.messages')
+        <!--管理画面ナビゲーション-->
+        @yield('admin-nav')
+        
         <!-- Page Content -->
         <main>
             @yield('content')
