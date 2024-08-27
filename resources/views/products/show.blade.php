@@ -38,6 +38,13 @@
                         <p><strong>ステータス:</strong> {{ $sku->status }}</p>
                         <p><strong>販売開始日:</strong> {{ $sku->start_date }}</p>
                         <p><strong>販売終了日:</strong> {{ $sku->end_date }}</p>
+                        <form action="{{ route('cart.add') }}" method="POST" class="mt-4">
+                            @csrf
+                            <input type="hidden" name="sku_id" value="{{ $sku->id }}">
+                            <label for="quantity" class="block text-sm font-medium text-gray-700">数量:</label>
+                            <input type="number" name="quantity" id="quantity" value="1" min="1" class="block w-full mt-1 mb-2 p-2 border rounded-md">
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">カートに追加</button>
+                        </form>
                     </div>
                 @endforeach
             </div>

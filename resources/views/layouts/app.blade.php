@@ -37,6 +37,7 @@
         </main>
     </div>
     <!-- Alpine.js -->
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script>-->
+    @stack('scripts')
 </body>
 </html>
